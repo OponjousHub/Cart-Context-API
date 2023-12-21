@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../store/cart-context";
 export default function Product({ id, image, title, price, description }) {
-  const { addItemToCart } = useContext(CartContext);
+  const { addItemToCart, items } = useContext(CartContext);
 
   return (
     <article className="product">

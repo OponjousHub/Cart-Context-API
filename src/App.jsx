@@ -11,7 +11,7 @@ function App() {
 
   function handleAddItemToCart(id) {
     setShoppingCart((prevShoppingCart) => {
-      const updatedItems = [...shoppingCart.items];
+      const updatedItems = [...prevShoppingCart.items];
 
       const existingCartItemIndex = updatedItems.findIndex(
         (cartItem) => cartItem.id === id
@@ -68,15 +68,13 @@ function App() {
   const contextValue = {
     items: shoppingCart.items,
     addItemToCart: handleAddItemToCart,
+    updateCartItemQuantity: handleUpdateCartItemQuantity,
   };
 
   return (
     <CartContext.Provider value={contextValue}>
-      <Header
-        cart={shoppingCart}
-        onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
-      />
-      <Shop onAddItemToCart={handleAddItemToCart} />
+      <Header />
+      <Shop />
     </CartContext.Provider>
   );
 }
